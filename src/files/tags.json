@@ -1,0 +1,380 @@
+[
+    {
+        "name": "Informatics"
+    },
+    {
+        "name": "Computer Science"
+    },
+    {
+        "name": "Information Technology"
+    },
+    {
+        "name": "Cycling"
+    },
+    {
+        "name": "Swimming"
+    },
+    {
+        "name": "Running"
+    },
+    {
+        "name": "Tennis"
+    },
+    {
+        "name": "Soccer"
+    },
+    {
+        "name": "Basketball"
+    },
+    {
+        "name": "Volleyball"
+    },
+    {
+        "name": "Baseball"
+    },
+    {
+        "name": "Softball"
+    },
+    {
+        "name": "Football"
+    },
+    {
+        "name": "Golf"
+    },
+    {
+        "name": "Hockey"
+    },
+    {
+        "name": "Lacrosse"
+    },
+    {
+        "name": "Rugby"
+    },
+    {
+        "name": "Track and Field"
+    },
+    {
+        "name": "Cross Country"
+    },
+    {
+        "name": "Wrestling"
+    },
+    {
+        "name": "Cheerleading"
+    },
+    {
+        "name": "Dance"
+    },
+    {
+        "name": "Gymnastics"
+    },
+    {
+        "name": "Martial Arts"
+    },
+    {
+        "name": "Yoga"
+    },
+    {
+        "name": "Pilates"
+    },
+    {
+        "name": "Zumba"
+    },
+    {
+        "name": "Kickboxing"
+    },
+    {
+        "name": "Boxing"
+    },
+    {
+        "name": "Weightlifting"
+    },
+    {
+        "name": "Bodybuilding"
+    },
+    {
+        "name": "Powerlifting"
+    },
+    {
+        "name": "Circuit Training"
+    },
+    {
+        "name": "Bootcamp"
+    },
+    {
+        "name": "HIIT"
+    },
+    {
+        "name": "Tabata"
+    },
+    {
+        "name": "Plyometrics"
+    },
+    {
+        "name": "Calisthenics"
+    },
+    {
+        "name": "Cycling"
+    },
+    {
+        "name": "Swimming"
+    },
+    {
+        "name": "Running"
+    },
+    {
+        "name": "Tennis"
+    },
+    {
+        "name": "Soccer"
+    },
+    {
+        "name": "Basketball"
+    },
+    {
+        "name": "Volleyball"
+    },
+    { 
+        "name": "Exhibition" 
+    },
+    { 
+        "name": "Opera" 
+    },
+    { 
+        "name": "Ballet" 
+    },
+    { 
+        "name": "Premiere" 
+    },
+    { 
+        "name": "Book Launch" 
+    },
+    { 
+        "name": "Festival" 
+    },
+    { 
+        "name": "Visual Art" 
+    },
+    { 
+        "name": "Contemporary Art" 
+    },
+    { 
+        "name": "Classical Music" 
+    },
+    { 
+        "name": "Literary Event" 
+    },
+    { 
+        "name": "Open Mic" 
+    },
+    { 
+        "name": "Dance Performance" 
+    },
+    { 
+        "name": "Street Performance" 
+    },
+    { 
+        "name": "Live Band" 
+    },
+    { 
+        "name": "DJ Night" 
+    },
+    { 
+        "name": "Rap Battle" 
+    },
+    { 
+        "name": "Battle of the Bands" 
+    },
+    { 
+        "name": "Marathon" 
+    },
+    { 
+        "name": "Championship" 
+    },
+    {    
+        "name": "Tournament" 
+    },
+    { 
+        "name": "Workshop" 
+    },
+    { 
+        "name": "Webinar" 
+    },
+    { 
+        "name": "Course" 
+    },
+    { 
+        "name": "Conference" 
+    },
+    { 
+        "name": "Training" 
+    },
+    { 
+        "name": "Networking" 
+    },
+    { 
+        "name": "Hackathon" 
+    },
+    { 
+        "name": "Startup" 
+    },
+    { 
+        "name": "Pitching" 
+    },
+    { 
+        "name": "Career" 
+    },
+    { 
+        "name": "Business" 
+    },
+    { 
+        "name": "Volunteering" 
+    },
+    { 
+        "name": "Charity" 
+    },
+    { 
+        "name": "Ecology" 
+    },
+    { 
+        "name": "Campaign" 
+    },
+    { 
+        "name": "Activism" 
+    },
+    { 
+        "name": "Party" 
+    },
+    { 
+        "name": "Club" 
+    },
+    { 
+        "name": "DJ Set" 
+    },
+    { 
+        "name": "Stand-up Comedy" 
+    },
+    { 
+        "name": "Karaoke" 
+    },
+    { 
+        "name": "Food Festival" 
+    },
+    { 
+        "name": "Wine Tasting" 
+    },
+    { 
+        "name": "Brunch" 
+    },
+    { 
+        "name": "Nightlife" 
+    },
+    { 
+        "name": "Family Event" 
+    },
+    { 
+        "name": "Kids Show" 
+    },
+    { 
+        "name": "Parenting" 
+    },
+    { 
+        "name": "Traditional Festival" 
+    },
+    { 
+        "name": "Religious Event" 
+    },
+    { 
+        "name": "Christmas Market" 
+    },
+    { 
+        "name": "New Year Party" 
+    },
+    { 
+        "name": "Halloween Event" 
+    },
+    { 
+        "name": "Easter Brunch" 
+    },
+    { 
+        "name": "Valentine's Day" 
+    },
+    { 
+        "name": "Tech Talk" 
+    },
+    { 
+        "name": "AI" 
+    },
+    { 
+        "name": "Blockchain" 
+    },
+    { 
+        "name": "VR/AR" 
+    },
+    { 
+        "name": "Science" 
+    },
+    { 
+        "name": "Meditation" 
+    },
+    { 
+        "name": "Nutrition" 
+    },
+    { 
+        "name": "Fitness" 
+    },
+    { 
+        "name": "Mental Health" 
+    },
+    { 
+        "name": "Self-care" 
+    },
+    { 
+        "name": "Fashion Show" 
+    },
+    { 
+        "name": "Styling Workshop" 
+    },
+    { 
+        "name": "Vintage Market" 
+    },
+    { 
+        "name": "Jewelry Show" 
+    },
+    { 
+        "name": "Outdoor Festival" 
+    },
+    { 
+        "name": "Hiking Trip" 
+    },
+    { 
+        "name": "Camping" 
+    },
+    { 
+        "name": "Bike Ride" 
+    },
+    { 
+        "name": "Kayaking" 
+    },
+    { 
+        "name": "Free Entry" 
+    },
+    { 
+        "name": "Paid Event" 
+    },
+    { 
+        "name": "Online Event" 
+    },
+    { 
+        "name": "In-person Event" 
+    },
+    { 
+        "name": "Hybrid Event" 
+    },
+    { 
+        "name": "18+" 
+    },
+    { 
+        "name": "Family Friendly" 
+    }
+]

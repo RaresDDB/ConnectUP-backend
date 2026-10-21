@@ -1,0 +1,242 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PendingMember {
+  id        String   @id @default(uuid())
+  firstName String   @map("first_name")
+  lastName  String   @map("last_name")
+  email     String   @unique
+  password  String
+  username  String   @unique
+  token     String   @unique
+  tags      String[]
+  avatarUri String?  @map("avatar_uri")
+  birthDate DateTime @map("birth_date")
+  gender    String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("pending_members")
+}
+
+model Role {
+  id    String @id @default(uuid())
+  name  String @unique
+  users User[]
+
+  @@map("roles")
+}
+
+model User {
+  id                    String                  @id @default(uuid())
+  firstName             String                  @map("first_name")
+  lastName              String                  @map("last_name")
+  avatarUri             String?                 @map("avatar_uri")
+  email                 String                  @unique
+  password              String
+  username              String                  @unique
+  gender                String
+  birthDate             DateTime                @map("birth_date")
+  roleId                String                  @map("role_id")
+  role                  Role                    @relation(fields: [roleId], references: [id])
+  admin                 Admin?
+  member                Member?
+  userTags              UserTag[]
+  notificationLogs      NotificationLog[]
+  changeEmailRequests   ChangeEmailRequest[]
+  resetPasswordRequests ResetPasswordRequest[]
+  ChangePasswordRequest ChangePasswordRequest[]
+
+  @@map("users")
+}
+
+model Member {
+  id             String          @id @map("user_id")
+  user           User            @relation(fields: [id], references: [id], onDelete: Cascade)
+  events         Event[]
+  reviews        Review[]
+  questions      Question[]
+  favorites      Favorite[]
+  attendedEvents EventAttendee[]
+
+  @@map("members")
+}
+
+model Admin {
+  id   String @id @map("user_id")
+  user User   @relation(fields: [id], references: [id], onDelete: Cascade)
+
+  @@map("admins")
+}
+
+model Tag {
+  id        String     @id @default(uuid())
+  name      String     @unique
+  userTags  UserTag[]
+  eventTags EventTag[]
+
+  @@map("tags")
+}
+
+model Event {
+  id               String            @id @default(uuid())
+  title            String
+  address          String
+  description      String
+  lat              Float
+  lng              Float
+  imageUri         String            @map("image_uri")
+  startDate        DateTime          @map("start_date")
+  endDate          DateTime?         @map("end_date")
+  createdAt        DateTime          @default(now()) @map("created_at")
+  hostId           String            @map("host_id")
+  host             Member            @relation(fields: [hostId], references: [id])
+  gallery          String[]
+  reviews          Review[]
+  favorites        Favorite[]
+  questions        Question[]
+  eventTags        EventTag[]
+  paidEvent        PaidEvent?
+  eventAttendees   EventAttendee[]
+  notificationLogs NotificationLog[]
+
+  @@map("events")
+}
+
+model EventTag {
+  tagId   String @map("tag_id")
+  eventId String @map("event_id")
+  tag     Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@id([eventId, tagId])
+  @@map("event_tags")
+}
+
+model UserTag {
+  tagId  String @map("tag_id")
+  userId String @map("user_id")
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, tagId])
+  @@map("user_tags")
+}
+
+model EventAttendee {
+  eventId   String   @map("event_id")
+  memberId  String   @map("member_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  member    Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@id([eventId, memberId])
+  @@map("event_attendees")
+}
+
+model Review {
+  id       String   @id @default(uuid())
+  title    String
+  text     String
+  rating   Float
+  postedAt DateTime @default(now()) @map("posted_at")
+  eventId  String   @map("event_id")
+  memberId String   @map("member_id")
+  event    Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  member   Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@map("reviews")
+}
+
+model Question {
+  id       String   @id @default(uuid())
+  title    String
+  text     String
+  postedAt DateTime @default(now()) @map("posted_at")
+  eventId  String   @map("event_id")
+  memberId String   @map("member_id")
+  event    Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  member   Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@map("questions")
+}
+
+model Favorite {
+  eventId   String   @map("event_id")
+  memberId  String   @map("member_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  member    Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, memberId])
+  @@map("favorites")
+}
+
+model PaidEvent {
+  id           String @id @map("event_id")
+  event        Event  @relation(fields: [id], references: [id], onDelete: Cascade)
+  price        Float
+  currency     String @default("RON")
+  maxAttendees Int?   @map("max_attendees")
+
+  @@map("paid_events")
+}
+
+model ResetPasswordRequest {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("reset_password_requests")
+}
+
+model NotificationLog {
+  id      String   @id @default(uuid())
+  userId  String   @map("user_id")
+  eventId String   @map("event_id")
+  sentAt  DateTime @default(now()) @map("sent_at")
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  event   Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, eventId])
+  @@map("notification_logs")
+}
+
+model ChangeEmailRequest {
+  id         String    @id @default(uuid())
+  token      String    @unique
+  oldEmail   String    @map("old_email")
+  newEmail   String    @map("new_email")
+  userId     String    @map("user_id")
+  user       User      @relation(fields: [userId], references: [id])
+  createdAt  DateTime  @default(now()) @map("created_at")
+  resolvedAt DateTime? @map("resolved_at")
+
+  @@map("change_email_requests")
+}
+
+model ChangePasswordRequest {
+  id          String    @id @default(uuid())
+  token       String    @unique
+  oldPassword String    @map("old_password")
+  newPassword String    @map("new_password")
+  userId      String    @map("user_id")
+  user        User      @relation(fields: [userId], references: [id])
+  createdAt   DateTime  @default(now()) @map("created_at")
+  resolvedAt  DateTime? @map("resolved_at")
+
+  @@map("change_password_requests")
+}

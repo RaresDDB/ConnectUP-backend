@@ -1,0 +1,19 @@
+[
+    {
+        "firstName": "Admin",
+        "lastName": "ConnectUp",
+        "email": "admin@gmail.com",
+        "password": "123123Aa",
+        "gender": "Male",
+        "username": "admin.connectup",
+        "birthDate": "2000-01-01T00:00:00Z",
+        "tags": [
+            "Information Technology",
+            "Cycling",
+            "Swimming",
+            "Running",
+            "Tennis",
+            "Soccer"
+        ]
+    }
+]
